@@ -1,0 +1,25 @@
+# Despliegue en Render (https://render.com) con un clic: "New > Blueprint"
+# y elige este repositorio. Necesita plan de pago (Starter) porque el
+# plan gratis NO permite disco y se borrarían los datos.
+services:
+  - type: web
+    name: strong-gym
+    runtime: docker
+    plan: starter
+    region: oregon
+    healthCheckPath: /api/salud
+    disk:
+      name: datos
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: MODO
+        value: nube
+      - key: DATA_DIR
+        value: /data
+      - key: SYNC_TOKEN
+        generateValue: true
+      - key: ADMIN_PASSWORD_INICIAL
+        sync: false
+      - key: DUENO_PASSWORD_INICIAL
+        sync: false

@@ -1,0 +1,5 @@
+/* Tipografías incluidas en el proyecto (licencia SIL OFL: ver /fonts/OFL-licencia.txt).
+   Así el sistema se ve igual aunque la recepción no tenga internet. */
+@font-face { font-family: "Big Shoulders Display"; src: url("/fonts/big-shoulders.woff") format("woff"); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: "Figtree"; src: url("/fonts/figtree.woff") format("woff"); font-weight: 300 900; font-display: swap; }
+@font-face { font-family: "Caveat Brush"; src: url("/fonts/caveat-brush.woff") format("woff"); font-weight: 400; font-display: swap; }

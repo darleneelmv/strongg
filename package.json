@@ -1,0 +1,16 @@
+{
+  "name": "strong-gym",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Strong Gym Puruándiro: sitio web, recepción con QR, membresías, ventas, inventario y portal del socio.",
+  "author": "CodeDMF",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server/index.js",
+    "demo": "node --disable-warning=ExperimentalWarning -e \"process.env.SEMBRAR_DEMO='1';process.env.DB_NOMBRE=process.env.DB_NOMBRE||'demo.db';require('./server/index.js')\"",
+    "test": "node --disable-warning=ExperimentalWarning --test test/sistema.test.js"
+  }
+}

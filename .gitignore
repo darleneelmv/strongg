@@ -1,0 +1,10 @@
+# La base de datos y sus respaldos NUNCA van al repositorio
+datos/
+.env
+node_modules/
+*.db
+*.db-wal
+*.db-shm
+
+# Local Netlify folder
+.netlify

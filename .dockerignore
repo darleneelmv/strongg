@@ -1,0 +1,9 @@
+datos
+.env
+test
+*.bat
+*.md
+.git
+docker-compose.yml
+nube.env.example
+*.sh

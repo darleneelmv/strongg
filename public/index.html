@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#061331">
+  <title>Strong Gym Puruándiro · Entrena fuerte</title>
+  <meta name="description" content="Strong Gym en Puruándiro, Michoacán: pesas, cardio, malteadas de proteína, planes y promociones. Entrena fuerte, sin excusas.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Strong Gym Puruándiro">
+  <meta property="og:description" content="Pesas, cardio, barra de proteína y un ambiente de comunidad. Conoce planes, precios y promociones.">
+  <meta property="og:image" content="/img/compartir.jpg">
+  <meta property="og:locale" content="es_MX">
+  <link rel="icon" href="/img/icono-192.png">
+  <link rel="apple-touch-icon" href="/img/icono-192.png">
+  <link rel="preload" href="/fonts/big-shoulders.woff" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="/css/fuentes.css">
+  <link rel="stylesheet" href="/css/sitio.css">
+</head>
+<body class="cargando">
+  <!-- Animación de entrada (se salta sola si no hay JavaScript) -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro-linea"></div>
+    <div class="intro-pesa">
+      <svg viewBox="0 0 120 48"><g fill="#fff"><rect x="24" y="20" width="72" height="8" rx="3"/><rect x="14" y="6" width="12" height="36" rx="4"/><rect x="4" y="12" width="9" height="24" rx="3"/><rect x="94" y="6" width="12" height="36" rx="4"/><rect x="107" y="12" width="9" height="24" rx="3"/></g></svg>
+    </div>
+    <div class="intro-chispas"></div>
+    <p class="intro-marca">Strong Gym</p>
+    <button class="intro-saltar" type="button">Saltar</button>
+  </div>
+
+  <header class="cab" id="cab">
+    <a class="cab-marca" href="#inicio" aria-label="Strong Gym, inicio">
+      <img src="/img/logo.jpg" alt="" width="44" height="44">
+      <span>Strong Gym<small>Puruándiro</small></span>
+    </a>
+    <nav class="cab-nav" id="nav" aria-label="Secciones"></nav>
+    <a class="cab-socios" href="/app">Socios</a>
+    <button class="cab-menu" id="btn-menu" aria-expanded="false" aria-controls="menu-movil" aria-label="Abrir menú"><span></span><span></span></button>
+  </header>
+  <div class="menu-movil" id="menu-movil" hidden></div>
+
+  <main id="contenido">
+    <section class="hero" id="inicio">
+      <div class="hero-luz" aria-hidden="true"></div>
+      <div class="hero-vasos" id="hero-vasos" aria-hidden="true"></div>
+      <div class="hero-centro">
+        <h1 class="hero-titulo" id="hero-titulo" aria-label="Strong Gym Puruándiro">STRONG</h1>
+        <p class="hero-linea" id="hero-linea">Gym · Puruándiro</p>
+      </div>
+      <div class="hero-pie">
+        <p class="hero-eslogan" id="hero-eslogan">Entrena fuerte. Entrena en Puruándiro.</p>
+        <div class="hero-acciones" id="hero-acciones">
+          <a class="boton boton-rojo" href="#malteadas">Ver malteadas</a>
+          <a class="boton boton-borde" href="#planes">Planes y precios</a>
+        </div>
+      </div>
+      <a class="hero-bajar" href="#cinta" aria-label="Bajar"><span></span>Desliza</a>
+    </section>
+    <div id="secciones"></div>
+  </main>
+
+  <footer class="pie" id="pie"></footer>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox-cerrar" type="button" aria-label="Cerrar">×</button>
+    <figure><img alt=""><figcaption></figcaption></figure>
+  </div>
+
+  <script src="/js/vaso.js"></script>
+  <script src="/js/sitio.js"></script>
+</body>
+</html>

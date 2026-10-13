@@ -1,0 +1,38 @@
+# =====================================================================
+#  Strong Gym en un VPS (Hostinger VPS, DigitalOcean, etc.)
+#  - "app": el sistema y el sitio
+#  - "caddy": pone HTTPS (candado) automático con tu dominio
+#  Uso:  cp nube.env.example .env   (y llénalo)
+#        docker compose up -d --build
+# =====================================================================
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    environment:
+      MODO: nube
+      DATA_DIR: /data
+      PORT: "3000"
+      SYNC_TOKEN: ${SYNC_TOKEN:?Falta SYNC_TOKEN en .env}
+      ADMIN_PASSWORD_INICIAL: ${ADMIN_PASSWORD_INICIAL:-}
+      DUENO_PASSWORD_INICIAL: ${DUENO_PASSWORD_INICIAL:-}
+      COOKIE_SEGURA: ${COOKIE_SEGURA:-1}
+    volumes:
+      - datos:/data          # aquí vive la base de datos y sus respaldos
+
+  caddy:
+    image: caddy:2.8
+    restart: unless-stopped
+    depends_on: [app]
+    ports:
+      - "80:80"
+      - "443:443"
+    command: caddy reverse-proxy --from ${DOMINIO:?Falta DOMINIO en .env} --to app:3000
+    volumes:
+      - caddy_datos:/data
+      - caddy_config:/config
+
+volumes:
+  datos:
+  caddy_datos:
+  caddy_config:
