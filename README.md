@@ -1,14 +1,60 @@
-# Strong Gym Puruándiro · sistema y sitio web
+# Strong Gym Puruándiro · Sistema de gestión y sitio web
 
-Proyecto completo y listo para usar:
+Sistema completo para un gimnasio real de Puruándiro, Michoacán: **control de acceso con QR, membresías, punto de venta, inventario, reportes y portal del socio**, más el **sitio web público** del gimnasio, editable desde el propio sistema.
 
-- **Sitio web público** (`/`): animado (intro, palabra gigante con malteadas flotando, cinta en movimiento, frase que se ilumina al bajar, bloque rojo con stickers que se arrastran, malteadas con fondo que cambia de color por sabor, planes, promociones, galería y contacto). **Todo se edita desde el sistema**, sin tocar código.
-- **Sistema de recepción y administración** (`/app`): acceso con QR, clientes con foto, membresías, visitas, punto de venta, inventario, movimientos, bitácora, usuarios, sitio web y sincronización.
-- **Portal del socio** (`/app`, entrando con su número de socio o teléfono): días restantes, su QR, asistencias y pagos.
+Funciona **sin internet** en la computadora de recepción y se **sincroniza con la nube** cada 60 segundos, así que el dueño puede consultar todo desde su celular.
 
-No necesita instalar librerías: solo **Node.js 22 o más nuevo** (trae su propia base de datos SQLite).
+![Sitio web](docs/capturas/sitio-web.jpg)
+
+## Capturas
+
+| Panel del administrador | Control de acceso con QR |
+|---|---|
+| ![Panel](docs/capturas/panel.jpg) | ![Acceso](docs/capturas/acceso-qr.jpg) |
+| **Clientes y membresías** | **Punto de venta** |
+| ![Clientes](docs/capturas/clientes.jpg) | ![Punto de venta](docs/capturas/punto-de-venta.jpg) |
+
+<p align="center"><img src="docs/capturas/portal-socio.jpg" width="260" alt="Portal del socio"><br><sub>Portal del socio (móvil): días restantes, credencial QR, asistencias y pagos</sub></p>
+
+## Funcionalidades
+
+**Recepción y administración** (`/app`)
+- Registro de entrada con lector QR USB o cámara, y búsqueda por teléfono o nombre.
+- Clientes con foto, membresías (alta, renovación, vencimientos), visitas sin membresía e impresión de credenciales.
+- Punto de venta con carrito y formas de pago, inventario con alertas de stock bajo.
+- Panel con ingresos del día, asistencias, socios vigentes, ganancia, gráfica de 7 días y productos más vendidos.
+- Movimientos, bitácora de acciones, usuarios y respaldos.
+- Importación de socios desde CSV (migración del sistema anterior).
+
+**Roles**: administrador (todo), dueño (solo lectura, validado en el servidor) y socio (su portal).
+
+**Sitio web público** (`/`): animado, con planes, promociones, galería, productos y contacto; los textos e imágenes se editan desde el sistema, sin tocar código.
+
+## Tecnologías
+
+| Capa | Tecnología |
+|---|---|
+| Backend | Node.js 22 (servidor HTTP propio, sin dependencias externas) |
+| Base de datos | SQLite (`node:sqlite`), local y en la nube |
+| Frontend | HTML, CSS y JavaScript (sin frameworks), generador de QR propio |
+| Sincronización | Recepción ⇄ nube por revisión y fecha de actualización, con token |
+| Despliegue | Docker, Docker Compose + Caddy (HTTPS) en VPS, o Render |
+| Pruebas | `node:test`, prueba de punta a punta de recepción + nube |
+
+**Seguridad:** contraseñas con scrypt, sesiones en cookie HttpOnly, límite de intentos de inicio de sesión, Content Security Policy, fotos de socios privadas y sincronización autenticada.
+
+## Probarlo en local
+
+```bash
+npm run demo     # datos de ejemplo en http://localhost:3000
+npm test         # pruebas automáticas
+```
+
+Accesos de la demo: `admin / admin1234`, `dueno / dueno1234`, socio `482913 / socio1234`. Los datos de la demo son ficticios.
 
 ---
+
+# Guía de instalación y uso
 
 ## 1. Cómo está pensado
 
